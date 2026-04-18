@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Versions - HeliOS</title>
+    <!-- Import Open Sans from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern reset and base styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: 'Open Sans', sans-serif;
+            color: #ffffff;
+            background-color: #000000;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Header layout */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .logo {
+            max-height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #1a1a1a;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+            z-index: 101;
+            border: 1px solid #333;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 14px 18px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #333;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .arrow-down {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+        }
+
+        /* Other Versions Content */
+        .other-versions-container {
+            min-height: 100vh;
+            padding: 160px 40px 100px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.5;
+            margin: 0;
+        }
+
+        /* Adjusted Spaced out card layout - Wider and Shorter */
+        .card-wrapper {
+            width: 100%;
+            max-width: 900px; /* Increased width */
+        }
+
+        .download-card.femboy {
+            background-color: #1a0b14;
+            border: 1px solid rgba(255, 105, 180, 0.15);
+            padding: 40px 60px; /* Reduced vertical padding for shorter height */
+            text-align: left; /* Changed to left for better horizontal flow */
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            flex-direction: row; /* Horizontal layout */
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .download-card.femboy:hover {
+            border-color: rgba(255, 105, 180, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-version {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffb7d5;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .card-title {
+            font-size: 36px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+            color: #ffb7d5;
+        }
+
+        .card-description {
+            font-size: 16px;
+            line-height: 1.5;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+
+        .terminal-container {
+            margin-top: 10px;
+        }
+
+        .terminal-label {
+            font-size: 13px;
+            color: #ffb7d5;
+            opacity: 0.6;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .terminal-info {
+            font-family: 'Courier New', Courier, monospace;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 2px;
+            color: #ffb7d5;
+            border: 1px solid rgba(255, 183, 213, 0.2);
+            display: inline-block;
+        }
+
+        .btn {
+            display: block;
+            padding: 18px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-radius: 0;
+            width: 180px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        .btn-femboy {
+            background-color: #ffb7d5;
+            color: #1a0b14;
+            border: 1px solid #ffb7d5;
+        }
+
+        .btn-femboy:hover {
+            background-color: transparent;
+            color: #ffb7d5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            padding: 60px 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            max-height: 30px;
+            width: auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            font-size: 12px;
+            opacity: 0.3;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .download-card.femboy {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px;
+            }
+            .card-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img 
+            src="https://raw.githubusercontent.com/intergalaxity/helios/refs/heads/main/HeliOS%20Logo.png" 
+            alt="HeliOS Logo" 
+            class="logo"
+            onclick="window.location.href='black_screen.html'"
+            style="cursor: pointer;"
+        >
+        <nav>
+            <a href="black_screen.html" class="nav-link">Home</a>
+            <a href="black_screen.html#about" class="nav-link">About</a>
+            <a href="#" class="nav-link">News</a>
+            <div class="dropdown">
+                <a class="nav-link">
+                    Download
+                    <svg class="arrow-down" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="download.html">HeliOS Main</a>
+                    <a href="other_versions.html">Other Versions</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="other-versions-container">
+        <div class="header-section">
+            <h1 class="title">Other Versions</h1>
+            <p class="subtitle">Special community editions and experimental builds.</p>
+        </div>
+
+        <div class="card-wrapper">
+            <!-- Focused Femboy Edition Card - Wider & Shorter -->
+            <div class="download-card femboy">
+                <div class="card-info">
+                    <span class="card-version">Special Edition</span>
+                    <h2 class="card-title">HeliOS Femboy Edition 2026</h2>
+                    <p class="card-description">A customized, aesthetic experience designed for the community. Stay soft, stay original.</p>
+                    
+                    <div class="terminal-container">
+                        <span class="terminal-label">Also accessible via Terminal via:</span>
+                        <div class="terminal-info">
+                            <code>sudo sv pro fb</code>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-femboy">Download .zip</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <img 
+            src="https://raw.githubusercontent.com/intergalaxity/helios/refs/heads/main/HeliOS%20Logo.png" 
+            alt="HeliOS Logo" 
+            class="footer-logo"
+        >
+        <div class="footer-nav">
+            <a href="black_screen.html" class="footer-link">Home</a>
+            <a href="black_screen.html#about" class="footer-link">About</a>
+            <a href="download.html" class="footer-link">Download</a>
+            <a href="#" class="footer-link">Guide</a>
+        </div>
+        <p class="copyright">&copy; 2026 HeliOS. "a simple os."</p>
+    </footer>
+</body>
+</html>
